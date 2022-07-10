@@ -81,6 +81,10 @@ body {
 .page-nav-bar {
   background-color: #3296fa;
 }
-.page-nav-bar .van-nav-bar__title {
+.page-nav-bar .van-nav-bar__title,
+.page-nav-bar .van-nav-bar__text,
+.page-nav-bar .van-icon,
+.page-nav-bar .van-icon-arrow-left,
+.page-nav-bar .van-nav-bar__arrow {
   color: #fff;
 }

@@ -1,7 +1,13 @@
 <template>
   <div class="login-container">
     <!--    导航栏 -->
-    <van-nav-bar class="page-nav-bar" title="登录" />
+    <van-nav-bar
+      @click-left="$router.back()"
+      left-text="返回"
+      class="page-nav-bar"
+      title="登录"
+    >
+    </van-nav-bar>
     <!-- 表单 -->
     <van-form @submit="onSubmit" ref="formRef">
       <van-cell-group>
@@ -104,9 +110,10 @@ export default {
       try {
         const res = await login(this.user);
         // this.$store.commit("saveUser", res.data.data);
-        console.log(res);
+        // console.log(res);
         this.saveUser(res.data);
         this.$toast.success("登录成功！");
+        this.$router.replace("/my");
       } catch (error) {
         if (err.response.status === 400) {
           this.$toast.fail("手机号或验证码错误");

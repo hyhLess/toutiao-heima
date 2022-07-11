@@ -3,7 +3,8 @@ import App from './App.vue'
 import router from './router'
 import Icon from '@/components/Icon/index.vue'
 import store from './store/index'
-Vue.component('Icon',Icon)
+import './utils/dayjs'
+Vue.component('Icon', Icon)
 
 // 加载 Vant 核心组件库
 import Vant from 'vant'

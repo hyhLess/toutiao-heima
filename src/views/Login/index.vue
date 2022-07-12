@@ -1,12 +1,8 @@
 <template>
   <div class="login-container">
     <!--    导航栏 -->
-    <van-nav-bar
-      @click-left="$router.back()"
-      left-text="返回"
-      class="page-nav-bar"
-      title="登录"
-    >
+    <van-nav-bar class="page-nav-bar" title="登录">
+      <van-icon slot="left" name="cross" @click="$router.back()" />
     </van-nav-bar>
     <!-- 表单 -->
     <van-form @submit="onSubmit" ref="formRef">
@@ -18,7 +14,12 @@
           :rules="rules.mobile"
           placeholder="请输入手机号"
         >
-          <i slot="left-icon" class="icon-shouji" style="font-size: 22px"> </i>
+          <i
+            slot="left-icon"
+            class="toutiao toutiao-shouji"
+            style="font-size: 22px"
+          >
+          </i>
         </van-field>
         <!-- :rules="[{ required: true, message: '请填写用户名' }]" -->
         <van-field
@@ -29,7 +30,7 @@
           placeholder="请输入验证码"
           ><i
             slot="left-icon"
-            class="icon-yanzhengma"
+            class="toutiao toutiao-yanzhengma"
             style="font-size: 22px"
           ></i>
           <template #button>

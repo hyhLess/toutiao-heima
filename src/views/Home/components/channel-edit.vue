@@ -1,13 +1,14 @@
 <template>
   <div class="channel-edit">
-    <i class="icon-cancle" @click="close"></i>
-    <van-cell title="我的频道" :border="false">
+    <van-cell :border="false">
+      <div slot="title" class="title-text">我的频道</div>
       <van-button
-        size="mini"
-        round
+        class="edit-btn"
         type="danger"
-        @click="isEdit = !isEdit"
         plain
+        round
+        size="mini"
+        @click="isEdit = !isEdit"
         >{{ isEdit ? "完成" : "编辑" }}</van-button
       >
     </van-cell>
@@ -26,13 +27,7 @@
                       false，不作用类名
          -->
 
-        <i
-          class="icon-guanbi"
-          v-show="isEdit"
-          style="color: black"
-          slot="icon"
-          name="clear"
-        ></i>
+        <van-icon v-show="isEdit" slot="icon" name="clear"></van-icon>
         <span class="text" :class="{ active: index === active }" slot="text">{{
           channel.name
         }}</span>
@@ -57,11 +52,9 @@ import {
   reqAllChannels,
   reqDeteleChannel,
 } from "@/api/channels";
-import Icon from "@/components/Icon/index.vue";
 import { getItem, setItem } from "@/utils/storage";
 export default {
   name: "ChannelEdit",
-  components: { Icon },
   props: {
     myChannels: {
       type: Array,
@@ -151,9 +144,6 @@ export default {
 
 <style scoped lang="less">
 .channel-edit {
-  .icon-cancle {
-    font-size: 20px;
-  }
   .title-text {
     font-size: 32px;
     color: #333333;
@@ -190,7 +180,7 @@ export default {
 
   /deep/ .my-grid {
     .grid-item {
-      .icon-guanbi {
+      .van-icon-clear {
         position: absolute;
         right: -10px;
         top: -10px;

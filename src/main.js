@@ -1,11 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import Icon from '@/components/Icon/index.vue'
 import store from './store/index'
 import './utils/dayjs'
-Vue.component('Icon', Icon)
-
 // 加载 Vant 核心组件库
 import Vant from 'vant'
 
@@ -14,6 +11,10 @@ import 'vant/lib/index.css'
 
 // 加载全局样式
 import './styles/index.less'
+import 'vant/lib/icon/local.css'
+import { Icon } from 'vant';
+
+Vue.use(Icon);
 
 // 加载动态设置 REM 基准值
 import 'amfe-flexible'

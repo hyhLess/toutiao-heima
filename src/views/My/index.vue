@@ -4,7 +4,7 @@
     <div v-if="$store.state.user.user" class="user-info-wrap">
       <!-- 头像及资料 -->
       <div class="data-box">
-        <div class="head-box">
+        <div class="head-box" @click="toUserInfo">
           <img :src="userInfo.photo" />
           <span>{{ userInfo.name }}</span>
         </div>
@@ -99,6 +99,9 @@ export default {
     //   const res = await reqGetUserInfo();
     //   this.userInfo = res.data;
     // },
+    toUserInfo() {
+      this.$router.push({ name: "user", params: this.userInfo.id });
+    },
   },
 };
 </script>

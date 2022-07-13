@@ -4,7 +4,7 @@
 import axios from "axios"
 import store from "@/store"
 const request = axios.create({
-  baseURL: "http://toutiao.itheima.net" // 基础路径
+  baseURL: "http://geek.itheima.net" // 基础路径
 })
 request.interceptors.request.use((config) => {
   const { user } = store.state.user

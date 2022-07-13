@@ -45,6 +45,8 @@ export default {
   mounted() {},
   methods: {
     async onLoad() {
+      this.$router.replace("/");
+      return this.$toast.fail("搜索接口暂时无法使用");
       try {
         const res = await getSearchResult({
           q: this.searchText,
@@ -59,9 +61,7 @@ export default {
           this.finished = true;
         }
       } catch (error) {
-        this.$toast.fail("搜索接口暂时无法使用");
         this.finished = true;
-        this.$router.replace("/");
       }
     },
   },

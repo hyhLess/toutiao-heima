@@ -9,7 +9,12 @@
           <span>{{ userInfo.name }}</span>
         </div>
         <div class="change-data">
-          <van-button size="small" class="change-btn" round type="default"
+          <van-button
+            size="small"
+            class="change-btn"
+            round
+            type="default"
+            to="/user/profile"
             >编辑资料</van-button
           >
         </div>
@@ -100,7 +105,10 @@ export default {
     //   this.userInfo = res.data;
     // },
     toUserInfo() {
-      this.$router.push({ name: "user", params: this.userInfo.id });
+      this.$bus.$emit("userInfo", this.userInfo);
+      this.$router.push({
+        name: "user",
+      });
     },
   },
 };

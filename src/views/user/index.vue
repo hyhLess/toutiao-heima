@@ -1,66 +1,70 @@
 <template>
   <div class="user-container">
     <!-- 导航栏 -->
-    <van-nav-bar
-      class="page-nav-bar"
-      left-arrow
-      title="用户名"
-      @click-left="$router.back()"
-    ></van-nav-bar>
+    <van-nav-bar title="黑马头条号">
+      <van-icon slot="left" name="cross" @click="$router.back()" />
+    </van-nav-bar>
     <!-- /导航栏 -->
 
-    <div class="user-info">
-      <div class="base-info">
+    <!-- 用户信息 -->
+    <div class="user-info-container">
+      <div class="row1">
         <van-image
-          class="avatar"
-          round
+          class="col1"
           fit="cover"
+          round
           src="https://img.yzcdn.cn/vant/cat.jpeg"
         />
-        <div class="right-area">
-          <div class="stats-wrap">
-            <div class="stats-item">
-              <span class="count">66</span>
-              <span class="text">发布</span>
+        <div class="col2">
+          <div class="row1">
+            <div class="item">
+              <div class="count">123</div>
+              <div class="text">发布</div>
             </div>
-            <div class="stats-item">
-              <span class="count">88</span>
-              <span class="text">关注</span>
+            <div class="item">
+              <div class="count">123</div>
+              <div class="text">关注</div>
             </div>
-            <div class="stats-item">
-              <span class="count">28</span>
-              <span class="text">粉丝</span>
+            <div class="item">
+              <div class="count">123</div>
+              <div class="text">粉丝</div>
             </div>
-            <div class="stats-item">
-              <span class="count">160</span>
-              <span class="text">获赞</span>
+            <div class="item">
+              <div class="count">123</div>
+              <div class="text">获赞</div>
             </div>
           </div>
-          <van-button class="follow-btn">关注</van-button>
+          <div class="action">
+            <van-button type="primary" size="small">私信</van-button>
+            <van-button type="default" size="small">编辑资料</van-button>
+          </div>
         </div>
       </div>
-      <div class="label-info">
-        <div class="bio-wrap">
-          <span class="label">简介：</span>
-          <span class="text">这是用户简介</span>
+      <div class="intro-wrap">
+        <div>
+          <span>认证：</span>
+          <span>用户的认证信息</span>
+        </div>
+        <div>
+          <span>简介：</span>
+          <span>用户的简介信息</span>
         </div>
       </div>
     </div>
+    <!-- /用户信息 -->
+
+    <!-- 文章列表 -->
+    <!-- /文章列表 -->
   </div>
 </template>
 
 <script>
 export default {
-  name: "UserIndex",
+  name: "UserPage",
   components: {},
-  props: {
-    userId: {
-      type: [Number, String, Object],
-      required: true,
-    },
-  },
+  props: {},
   data() {
-    return {};
+    return { userInfo: {} };
   },
   computed: {},
   watch: {},
@@ -72,60 +76,45 @@ export default {
 
 <style scoped lang="less">
 .user-container {
-  .user-info {
+  font-size: 14px;
+  .user-info-container {
+    padding: 50px 12px 12px 12px;
     background-color: #fff;
-    padding: 25px 32px;
-    .base-info {
-      display: flex;
-      margin-bottom: 25px;
-      .avatar {
-        width: 155px;
-        height: 155px;
-        margin-right: 62px;
-      }
-    }
-    .label-info {
-      font-size: 25px;
-      .bio-wrap {
-        .label {
-          color: #646263;
-        }
-        .text {
-          color: #212121;
-        }
-      }
-    }
-  }
-  .right-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    .stats-wrap {
+    margin-bottom: 10px;
+    > .row1 {
       display: flex;
       justify-content: space-between;
-      .stats-item {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .count {
-          font-size: 26px;
-          color: #0d0a10;
-        }
+      align-items: center;
+      margin-bottom: 10px;
+      .item {
+        text-align: center;
         .text {
-          font-size: 21px;
-          color: #9c9b9d;
+          font-size: 12px;
         }
       }
-    }
-    .follow-btn {
-      width: 289px;
-      height: 55px;
-      line-height: 55px;
-      background-color: #6bb5ff;
-      color: #fff;
-      border: none;
+      > .col1 {
+        width: 80px;
+        height: 80px;
+      }
+      > .col2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 70%;
+        height: 80px;
+        padding: 0 12px;
+        > .row1 {
+          display: flex;
+          justify-content: space-between;
+        }
+        .action {
+          display: flex;
+          justify-content: space-between;
+          .van-button {
+            width: 45%;
+          }
+        }
+      }
     }
   }
 }
